@@ -198,6 +198,8 @@ class CT80(CommonThermostat):
             1: 'Run only with heat',
             2: 'Run any time (runs fan)',
         })
+    
+    humidifier_setpoint = fields.Field('/tstat/thumidity', 'thumidity')
 
 
 class CT80RevB(CT80):
