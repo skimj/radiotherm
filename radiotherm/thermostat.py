@@ -178,6 +178,14 @@ class CT30(CommonThermostat):
             12 : '1 stage pump, no aux',
     })
 
+    ### Price Messaging Area ###
+    # valid line number values: 0, 1, 2, 3
+    price_message_line = fields.WriteOnlyField('/tstat/pma', 'line')
+    price_message_string = fields.WriteOnlyField('/tstat/pma', 'message')
+    # If a message field is specified, the PMA is turned on regardless of mode
+    # mode values: 0 = Disable, 2 = Enable
+    price_message_mode = fields.WriteOnlyField('/tstat/pma', 'mode')
+
 
 class CT80(CommonThermostat):
     """
@@ -199,6 +207,11 @@ class CT80(CommonThermostat):
             2: 'Run any time (runs fan)',
         })
 
+    ### User Messaging Area ###
+    # valid line number values: 0, 1
+    user_message_line = fields.WriteOnlyField('/tstat/uma', 'line')
+    user_message_string = fields.WriteOnlyField('/tstat/uma', 'message')
+ 
 
 class CT80RevB(CT80):
     """
