@@ -191,6 +191,7 @@ class CT80(CommonThermostat):
             1 : 'Program B: Custom',
             2 : 'Vacation',
             3 : 'Holiday'
+        })
 
     # These three stages attributes take place of the CT30's hvac_code
     heat_stages = fields.ReadOnlyField('/tstat/hvac_settings', 'heat_stages')
