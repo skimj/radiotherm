@@ -160,6 +160,15 @@ class CommonThermostat(Thermostat):
         """
         self.post('/tstat/program/%s/%s' % (heat_cool, day), json.dumps(program).encode('utf-8'))
 
+    ### Price Messaging Area ###
+    # valid line number values: 0, 1, 2, 3 per API
+    # (CT80 seems to only use line numbers 0, 1; message length up to 6 characters)
+    def price_message(self, line_num, message):
+        if not type(line_num) is int:
+            raise TypeError('line_num must be an int')
+        # If a message field is specified, the PMA is turned on regardless of mode
+        self.post('/tstat/pma', json.dumps({'line' : line_num, 'message' : message}).encode('utf-8'))
+
 
 class CT30(CommonThermostat):
     """
@@ -198,6 +207,14 @@ class CT80(CommonThermostat):
             1: 'Run only with heat',
             2: 'Run any time (runs fan)',
         })
+
+    ### User Messaging Area ###
+    # valid line number values: 0, 1
+    # message can be 26-1/2 characters (a '.' works for the 1/2 character but most others are mangled)
+    def user_message(self, line_num, message):
+        if not type(line_num) is int:
+            raise TypeError('line_num must be an int')
+        self.post('/tstat/uma', json.dumps({'line' : line_num, 'message' : message}).encode('utf-8'))
 
 
 class CT80RevB(CT80):
