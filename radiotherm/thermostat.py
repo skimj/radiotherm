@@ -187,8 +187,8 @@ class CT80(CommonThermostat):
     ### Program Mode (extended tstat subsystem)
     program_mode = fields.Field('/tstat', 'program_mode',
         human_value_map={
-            0 : 'Program A: Interview/Guided',
-            1 : 'Program B: Custom',
+            0 : 'Program A',
+            1 : 'Program B',
             2 : 'Vacation',
             3 : 'Holiday'
         })
