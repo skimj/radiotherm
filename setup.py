@@ -5,14 +5,14 @@ from distutils.core import setup
 long_desc = open('README.rst').read()
 
 setup(name='radiotherm',
-    version='1.3',
+    version='1.4a0',
     description='client library for wifi thermostats sold by radiothermostat.com',
     long_description=long_desc,
     packages=('radiotherm',),
     license='BSD',
     author='Michael Hrivnak',
     author_email='mhrivnak@hrivnak.org',
-    url='https://github.com/mhrivnak/radiotherm',
+    url='https://github.com/skimj/radiotherm/tree/cherrypicked',
     classifiers=(
         'Intended Audience :: Developers',
         'License :: OSI Approved :: BSD License',
