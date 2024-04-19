@@ -27,7 +27,7 @@ Features
   no need to enter an IP address or domain name.
 - *Comprehensive* Nearly every documented feature that works is implemented in
   this library.
-- *Python 3 Support* This works in all Python versions from 2.6 up.
+- *Python 3 Support* This works in all Python versions from 2.7 up.
 - *Tested* There is good test coverage using true unit tests.
 
 Usage
@@ -78,6 +78,8 @@ Supported models:
 - CT50 V1.88
 - CT50 V1.92
 - CT50 V1.94
+- CT80 Rev B1 V1.00
+- CT80 Rev B2 V1.00
 - CT80 Rev B2 V1.03
 - CT80 Rev B2 V1.09
 
@@ -85,7 +87,9 @@ Since I only have access to the 3M50 (which reports its model as "CT50 V1.94"),
 that is the model that most development has occured with. Do you have another
 model? Let me know, and let's collaborate to get it supported!
 
-New models can be supported easily by subclassing either the CT30 or CT80
+New models that are derivatives of the CT30 or CT80 should be detected
+automatically and basic functionality should work. If you find this is not the
+case, it can be supported easily by subclassing either the CT30 or CT80
 classes, depending on the thermostat model. Most of the API should work on all
 devices, but there are apparently some differences that will need to be
 accounted for. Long-term, I expect for those common features to be implemented
@@ -141,6 +145,39 @@ complicated or large.
 
 Release Notes
 =============
+
+2.1.0
+-----
+
+- `Shorten http request timeout <https://github.com/mhrivnak/radiotherm/pull/47>`_
+  for cases where the thermostat does not respond. (@vinnyfuria)
+- Drop python 2.6 support
+- Use GitHub Actions instead of Travis-CI (@mhrivnak)
+
+2.0.0
+-----
+
+- Add support for the LED API (David Rasch)
+- Allow unknown thermostats to work properly instead of failing (@JerryWorkman,
+  @craftyguy)
+- Handle transient thermostat errors (@tubaman)
+
+1.4.1
+-----
+
+Minor update to bump version in setup.py
+
+1.4
+---
+
+Several new models were added with thanks to the corresponding contributors!
+
+CT80 Rev B1 V1.00 - Eamon Doyle
+CT80 Rev B2 V1.00 - Clayton Craft
+
+Additional changes:
+- Add 'model' parameter to `get_thermostat()` - skimj
+- Add program_mode for CT80 - skimj
 
 1.3
 ---
