@@ -22,7 +22,7 @@ class Thermostat(object):
     # and it's the right thing to do.
     JSON_HEADER = {'Content-Type' : 'application/json'}
 
-    def __init__(self, host, timeout=4):
+    def __init__(self, host, timeout=10):
         self.host = host
         self.timeout = timeout
 
